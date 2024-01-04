@@ -26,13 +26,14 @@ status: {}
 apiVersion: v1
 kind: Service
 metadata:
-  name: lb-service
+  name: flasktest
   labels:
-    app: lb-service
+    app: flasktest
 spec:
-  type: LoadBalancer
+  type: NodePort
   ports:
   - port: 80
-    targetPort: 5000
+    targetPort: 80
+    containerPort: 30500
   selector:
     app: flaskdemo
